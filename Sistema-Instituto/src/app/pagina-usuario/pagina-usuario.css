@@ -1,0 +1,478 @@
+.section_usuario{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #202020;
+}
+
+#panel_lateralOpc{
+    width: 22%;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #ff6668;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+#panel_lateralCont{
+    width: 78%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px 34px;
+    box-sizing: border-box;
+}
+
+#informacion_usuario{
+    height: 22%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    gap: 8px;
+}
+
+#informacion_usuario p{
+    margin: 0;
+}
+
+.icono-usuario{
+    width: 70px;
+    height: 70px;
+    font-size: 70px;
+    color: white;
+}
+
+#informacion_usuario button{
+    min-width: 116px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ffffff2a;
+    color: white;
+    font-size: 12px;
+}
+
+#contenedor_opciones{
+    width: 86%;
+    height: 78%;
+    display: flex;
+    gap: 28px;
+    flex-direction: column;
+}
+
+#contenedor_opciones button{
+    width: 100%;
+    min-height: 68px;
+    padding: 0 16px;
+    border: none;
+    background-color: #ff6668;
+    color: white;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 21px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#contenedor_opciones button.activo{
+    background-color: #ffffff;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    color: #fa4e51;
+}
+
+#contenedor_opciones mat-icon{
+    width: 38px;
+    height: 38px;
+    font-size: 38px;
+}
+
+#logo_cabecera{
+    width: 100%;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#logo_cabecera img{
+    height: 60px;
+    object-fit: contain;
+}
+
+#contendor_cur{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.panel_contenido{
+    border: 1px solid #ff8f91;
+    background-color: #fff5f5;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#contenedor_misCu{
+    width: 55%;
+    padding: 28px 24px 28px 48px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#contenedor_Inscr{
+    width: 45%;
+    padding: 18px 28px 24px 44px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.panel_contenido h2{
+    margin: 0 0 26px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.barra_scroll{
+    width: 8px;
+    height: 88%;
+    border-radius: 8px;
+    background-color: #d0c6c6;
+    position: absolute;
+    left: 4px;
+    top: 64px;
+}
+
+.tarjeta_curso,
+.tarjeta_historial{
+    min-height: 74px;
+    margin-bottom: 14px;
+    padding: 0 18px;
+    display: grid;
+    grid-template-columns: 76px 1fr 170px;
+    align-items: center;
+    gap: 26px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 4px 5px 5px #00000030;
+}
+
+.imagen_curso{
+    width: 76px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    background: radial-gradient(circle at 35% 20%, #552040, #03051c 62%);
+    color: white;
+    font-size: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.imagen_curso::after{
+    content: "AI";
+    font-size: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 0 #5ac7f2;
+}
+
+.detalle_curso h3,
+.detalle_interes h3,
+.tarjeta_historial h3{
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.detalle_curso p,
+.detalle_interes p,
+.tarjeta_historial p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.fecha_curso{
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tarjeta_interes{
+    min-height: 230px;
+    margin-bottom: 44px;
+    display: grid;
+    grid-template-columns: 164px 1fr;
+    align-items: stretch;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 4px 5px 5px #00000030;
+    overflow: hidden;
+}
+
+.imagen_curso_grande{
+    width: 164px;
+    height: 230px;
+    border-radius: 18px 0 0 18px;
+}
+
+.imagen_curso_grande::after{
+    font-size: 74px;
+}
+
+.detalle_interes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.detalle_interes button{
+    min-width: 154px;
+    height: 28px;
+    border: none;
+    border-radius: 9px;
+    background-color: #fb4d50;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.detalle_interes button:disabled{
+    background-color: #b9b9b9;
+}
+
+#contenedor_historial{
+    width: 96%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+}
+
+#banner_historial{
+    height: 176px;
+    padding: 26px 34px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1.3fr;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid #ff8f91;
+    border-radius: 12px;
+    background-color: #fff5f5;
+    box-sizing: border-box;
+}
+
+.item_resumen{
+    min-height: 96px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 3px 4px 5px #00000024;
+    text-align: center;
+}
+
+.item_resumen mat-icon{
+    width: 28px;
+    height: 28px;
+    font-size: 28px;
+    color: #fa4e51;
+}
+
+.item_resumen span{
+    font-size: 13px;
+    color: #626262;
+}
+
+.item_resumen strong{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.item_resumen_largo strong{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.campo_filtro_historial{
+    width: 100%;
+}
+
+::ng-deep .section_usuario .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+}
+
+::ng-deep .section_usuario .mat-mdc-text-field-wrapper{
+    height: 42px;
+    border-radius: 18px;
+    background-color: white;
+}
+
+::ng-deep .section_usuario .mat-mdc-form-field-flex{
+    height: 42px;
+    align-items: center;
+}
+
+::ng-deep .section_usuario .mat-mdc-form-field-infix{
+    min-height: 42px;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+::ng-deep .section_usuario .mat-mdc-form-field-icon-prefix{
+    color: #fa4e51;
+    padding-left: 8px;
+}
+
+#lista_historial{
+    flex: 1;
+    padding: 34px 52px 18px 72px;
+    border: 1px solid #ff8f91;
+    border-radius: 12px;
+    background-color: #fff5f5;
+    position: relative;
+    overflow: hidden;
+}
+
+#lista_historial .barra_scroll{
+    top: 35px;
+    left: 56px;
+    height: 86%;
+}
+
+.tarjeta_historial{
+    grid-template-columns: 76px 1.3fr .6fr 1fr 70px;
+}
+
+.tarjeta_historial span{
+    font-size: 12px;
+    text-align: center;
+}
+
+#contenedor_datos{
+    width: 70%;
+    min-height: 380px;
+    padding: 34px;
+    border-radius: 12px;
+}
+
+.grid_datos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.item_dato{
+    min-height: 58px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 3px 4px 5px #00000025;
+}
+
+.item_dato span,
+.item_dato strong{
+    display: block;
+}
+
+.item_dato span{
+    color: #fa4e51;
+    font-size: 13px;
+}
+
+.item_dato strong{
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#contenedor_datos button{
+    margin: 28px auto 0;
+    display: block;
+}
+
+@media (max-width: 900px){
+    .section_usuario{
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    #panel_lateralOpc,
+    #panel_lateralCont{
+        width: 100%;
+        min-width: 0;
+    }
+
+    #panel_lateralOpc{
+        height: auto;
+        align-items: center;
+        border-radius: 0;
+    }
+
+    #contenedor_opciones{
+        width: 100%;
+        flex-direction: row;
+        gap: 0;
+    }
+
+    #contenedor_opciones button{
+        justify-content: center;
+        border-radius: 0;
+        font-size: 14px;
+    }
+
+    #contendor_cur,
+    .tarjeta_interes{
+        flex-direction: column;
+        display: flex;
+    }
+
+    #banner_historial{
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    #contenedor_misCu,
+    #contenedor_Inscr,
+    #contenedor_datos{
+        width: 100%;
+    }
+
+    .tarjeta_curso,
+    .tarjeta_historial{
+        grid-template-columns: 76px 1fr;
+    }
+}

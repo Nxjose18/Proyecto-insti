@@ -1,0 +1,55 @@
+<header class="barra_menu">
+  <div id="logo_menu">
+    <img src="imagenes/logo-completo.png" alt="logo">
+  </div>
+  <div id="acciones_menu">
+    <p>BIENVENIDO</p>
+  </div>
+</header>
+
+<section class="section_inicioYregistro">
+  <div id="inicio_img"></div>
+  <div id="inicio_cont"></div>
+  <div id="contenedor_login">
+    <div id="formulario_logo">
+      <img src="imagenes/logo-completo.png" alt="logo">
+    </div>
+<div id="formulario_login">
+
+  <div id="formulario_login_btn">
+    <button mat-button class="activo">
+      LOGIN
+    </button>
+  </div>
+
+  <form id="form_login" (ngSubmit)="ingresar()">
+
+  <mat-form-field appearance="outline" class="campo">
+    <input
+      matInput
+      name="usuario"
+      [(ngModel)]="usuario"
+      placeholder="Correo">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <input
+      matInput
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      placeholder="Contraseña">
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    class="btn_ingresar"
+    type="submit">
+    Ingresar
+  </button>
+
+</form>
+
+</div>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+<section class="section_usuario">
+  <div id="panel_lateralOpc">
+    <div id="informacion_usuario">
+      <mat-icon class="icono-usuario">account_circle</mat-icon>
+      <p>{{ usuario }}</p>
+      <button mat-raised-button type="button" (click)="cerrarSesion()">Cerrar sesion</button>
+    </div>
+
+    <div id="contenedor_opciones">
+      <button [ngClass]="{ activo: opcionSeleccionada === 'cursos' }" (click)="seleccionar('cursos')">
+        <mat-icon class="icono-libro">menu_book</mat-icon>
+        <span>Mis cursos</span>
+      </button>
+
+      <button [ngClass]="{ activo: opcionSeleccionada === 'historial' }" (click)="seleccionar('historial')">
+        <mat-icon class="icono-historial">event_available</mat-icon>
+        <span>Historial Academico</span>
+      </button>
+
+      <button [ngClass]="{ activo: opcionSeleccionada === 'datos' }" (click)="seleccionar('datos')">
+        <mat-icon class="icono-datos">fact_check</mat-icon>
+        <span>Mis datos</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="panel_lateralCont">
+    <div id="logo_cabecera">
+      <img src="imagenes/logo-completo.png" alt="logo cieguetos learning">
+    </div>
+
+    <div id="contendor_cur" *ngIf="opcionSeleccionada === 'cursos'">
+      <div id="contenedor_misCu" class="panel_contenido">
+        <h2>CURSOS INSCRITOS</h2>
+        <div class="barra_scroll"></div>
+        <article class="tarjeta_curso" *ngFor="let curso of cursosInscritos">
+          <div class="imagen_curso">{{ categoriaPrincipal }}</div>
+          <div class="detalle_curso">
+            <h3>{{ curso.nombre }}</h3>
+            <p>{{ curso.descripcion }}</p>
+          </div>
+          <p class="fecha_curso">FECHA INICIO - FECHA FIN</p>
+        </article>
+      </div>
+
+      <div id="contenedor_Inscr" class="panel_contenido">
+        <h2>CURSOS QUE TE PODRIAN INTERESAR</h2>
+        <div class="barra_scroll"></div>
+        <article class="tarjeta_interes" *ngFor="let curso of cursosInteres">
+          <div class="imagen_curso imagen_curso_grande">{{ categoriaPrincipal }}</div>
+          <div class="detalle_interes">
+            <h3>{{ curso.nombre }}</h3>
+            <p>{{ curso.descripcion }}</p>
+            <p>{{ obtenerPeriodo(curso) }}</p>
+            <button type="button" (click)="inscribirse(curso)" [disabled]="esCursoRegistrado(curso.codigo)">
+              {{ esCursoRegistrado(curso.codigo) ? 'Inscrito' : 'Inscribirse' }}
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div id="contenedor_historial" class="panel_contenido" *ngIf="opcionSeleccionada === 'historial'">
+      <div id="banner_historial">
+        <div class="item_resumen">
+          <mat-icon>school</mat-icon>
+          <span>Cursos culminados</span>
+          <strong>{{ historialCursos.length }}</strong>
+        </div>
+        <div class="item_resumen">
+          <mat-icon>workspace_premium</mat-icon>
+          <span>Promedio</span>
+          <strong>{{ promedioHistorial }}</strong>
+        </div>
+        <div class="item_resumen item_resumen_largo">
+          <mat-icon>history</mat-icon>
+          <span>Ultimo curso</span>
+          <strong>{{ ultimoCursoCulminado }}</strong>
+        </div>
+        <mat-form-field appearance="outline" class="campo_filtro_historial">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput name="filtroHistorial" [(ngModel)]="filtroHistorial" placeholder="Filtrar historial">
+        </mat-form-field>
+      </div>
+      <div id="lista_historial">
+        <div class="barra_scroll"></div>
+        <article class="tarjeta_historial" *ngFor="let curso of historialFiltrado">
+          <div class="imagen_curso">{{ categoriaPrincipal }}</div>
+          <h3>{{ curso.nombre }}</h3>
+          <p>{{ curso.descripcion }}</p>
+          <p>Culminado el : {{ curso.fechaFin }}</p>
+          <span>{{ obtenerNota(curso) }}</span>
+        </article>
+      </div>
+    </div>
+
+    <div id="contenedor_datos" class="panel_contenido" *ngIf="opcionSeleccionada === 'datos'">
+      <h2>Mis datos</h2>
+      <div class="grid_datos">
+        <div class="item_dato" *ngFor="let dato of datosUsuario">
+          <span>{{ dato.etiqueta }}</span>
+          <strong>{{ dato.valor }}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

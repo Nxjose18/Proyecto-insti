@@ -1,0 +1,395 @@
+.section_admin{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #111111;
+}
+
+#panel_lateralOpc{
+    width: 22%;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-color: #ff6668;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+#panel_lateralCont{
+    width: 78%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 78px;
+    padding: 22px 70px 40px;
+    box-sizing: border-box;
+}
+
+#informacion_usuario{
+    height: 22%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    gap: 8px;
+}
+
+#informacion_usuario p{
+    margin: 0;
+}
+
+.icono-usuario{
+    width: 70px;
+    height: 70px;
+    font-size: 70px;
+    color: white;
+}
+
+#informacion_usuario button{
+    min-width: 116px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ffffff2a;
+    color: white;
+    font-size: 12px;
+}
+
+#contenedor_opciones{
+    width: 86%;
+    height: 78%;
+    display: flex;
+    gap: 28px;
+    flex-direction: column;
+}
+
+#contenedor_opciones button{
+    width: 100%;
+    min-height: 68px;
+    padding: 0 12px;
+    border: none;
+    background-color: #ff6668;
+    color: white;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#contenedor_opciones button.activo{
+    background-color: #ffffff;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    color: #fa4e51;
+}
+
+#contenedor_opciones mat-icon{
+    width: 38px;
+    height: 38px;
+    font-size: 38px;
+}
+
+#logo_cabecera{
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#logo_cabecera img{
+    height: 60px;
+    object-fit: contain;
+}
+
+#contenedor_admin{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    justify-content: flex-start;
+}
+
+.panel_formulario,
+.panel_tabla{
+    width: 100%;
+    border: 1px solid #9d9d9d;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.panel_formulario{
+    min-height: 266px;
+    position: relative;
+    padding-bottom: 32px;
+}
+
+.cabecera_formulario{
+    min-height: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    background-color: #d9d9d9;
+}
+
+.cabecera_formulario h2,
+.panel_tabla h2{
+    margin: 0;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.cabecera_unica{
+    grid-template-columns: 1fr;
+}
+
+.cuerpo_formulario{
+    padding: 56px 28px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.formulario_estudiante{
+    padding-top: 56px;
+}
+
+.grupo_campos{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fila_campos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+mat-form-field{
+    width: 100%;
+    height: 34px;
+}
+
+textarea{
+    min-height: 56px;
+}
+
+::ng-deep .section_admin .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+}
+
+::ng-deep .section_admin .mat-mdc-text-field-wrapper{
+    height: 34px;
+    border-radius: 18px;
+    background-color: white;
+}
+
+::ng-deep .section_admin .mat-mdc-form-field-flex{
+    height: 34px;
+    align-items: center;
+}
+
+::ng-deep .section_admin .mat-mdc-form-field-infix{
+    min-height: 34px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+::ng-deep .section_admin textarea.mat-mdc-input-element{
+    min-height: 56px;
+    resize: none;
+}
+
+::ng-deep .section_admin .mat-mdc-form-field:has(textarea) .mat-mdc-text-field-wrapper{
+    height: 78px;
+}
+
+input,
+textarea{
+    width: 100%;
+    min-height: 34px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+}
+
+textarea{
+    min-height: 78px;
+    padding-top: 10px;
+    resize: none;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color: #9e9e9e;
+}
+
+.boton_secundario,
+.boton_registrar{
+    border: 1px solid #df3d3f;
+    background-color: #f36b6b;
+    color: white;
+    cursor: pointer;
+}
+
+.boton_secundario{
+    min-height: 34px;
+    border-radius: 18px;
+    color: #202020;
+    background-color: #ffc9c9;
+    box-shadow: none;
+}
+
+.boton_registrar{
+    width: 206px;
+    height: 31px;
+    display: block;
+    margin: 4px auto 0;
+    border-radius: 9px;
+    box-shadow: none;
+}
+
+.mensaje_registro{
+    margin: 10px 0 0;
+    text-align: center;
+    color: #fa4e51;
+    font-size: 13px;
+}
+
+.formulario_curso .cuerpo_formulario{
+    padding-top: 58px;
+}
+
+.panel_tabla{
+    min-height: 306px;
+}
+
+.panel_tabla h2{
+    height: 40px;
+    line-height: 40px;
+    background-color: #d9d9d9;
+}
+
+.contenedor_filtro{
+    padding: 10px 28px 4px;
+}
+
+.contenedor_filtro mat-form-field{
+    max-width: 430px;
+}
+
+::ng-deep .section_admin .contenedor_filtro .mat-mdc-form-field-icon-prefix{
+    color: #fa4e51;
+    padding-left: 8px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+thead{
+    height: 28px;
+    background-color: #e8e8e8;
+}
+
+th{
+    font-weight: 400;
+}
+
+td{
+    height: 32px;
+    text-align: center;
+}
+
+.boton_editar,
+.boton_eliminar{
+    min-width: 48px;
+    height: 15px;
+    border: none;
+    color: white;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.boton_editar{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #3591db;
+}
+
+.boton_eliminar{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #e52020;
+}
+
+.panel_datos_admin{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.panel_datos_admin .cuerpo_formulario{
+    grid-template-columns: 1fr;
+    text-align: center;
+    font-size: 18px;
+}
+
+@media (max-width: 900px){
+    .section_admin{
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    #panel_lateralOpc,
+    #panel_lateralCont{
+        width: 100%;
+        min-width: 0;
+    }
+
+    #panel_lateralOpc{
+        height: auto;
+        align-items: center;
+        border-radius: 0;
+    }
+
+    #panel_lateralCont{
+        padding: 20px;
+        gap: 24px;
+    }
+
+    #contenedor_opciones{
+        width: 100%;
+        flex-direction: row;
+        gap: 0;
+    }
+
+    #contenedor_opciones button{
+        justify-content: center;
+        font-size: 12px;
+    }
+
+    .cuerpo_formulario,
+    .cabecera_formulario{
+        grid-template-columns: 1fr;
+    }
+}

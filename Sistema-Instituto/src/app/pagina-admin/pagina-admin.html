@@ -1,0 +1,195 @@
+<section class="section_admin">
+  <div id="panel_lateralOpc">
+    <div id="informacion_usuario">
+      <mat-icon class="icono-usuario">account_circle</mat-icon>
+      <p>{{ usuario }}</p>
+      <button mat-raised-button type="button" (click)="cerrarSesion()">Cerrar sesion</button>
+    </div>
+
+    <div id="contenedor_opciones">
+      <button [ngClass]="{ activo: opcionSeleccionada === 'estudiantes' }" (click)="seleccionar('estudiantes')">
+        <mat-icon>menu_book</mat-icon>
+        <span>REGISTRAR ESTUDIANTES</span>
+      </button>
+
+      <button [ngClass]="{ activo: opcionSeleccionada === 'cursos' }" (click)="seleccionar('cursos')">
+        <mat-icon>event_available</mat-icon>
+        <span>REGISTRAR CURSOS</span>
+      </button>
+
+      <button [ngClass]="{ activo: opcionSeleccionada === 'datos' }" (click)="seleccionar('datos')">
+        <mat-icon>fact_check</mat-icon>
+        <span>MIS DATOS</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="panel_lateralCont">
+    <div id="logo_cabecera">
+      <img src="imagenes/logo-completo.png" alt="logo cieguetos learning">
+    </div>
+
+    <div id="contenedor_admin" *ngIf="opcionSeleccionada === 'estudiantes'">
+      <form class="panel_formulario" (ngSubmit)="registrarEstudiante()">
+        <div class="cabecera_formulario">
+          <h2>Datos Personales</h2>
+          <h2>Datos Academicos</h2>
+        </div>
+
+        <div class="cuerpo_formulario formulario_estudiante">
+          <div class="grupo_campos">
+            <mat-form-field appearance="outline">
+              <input matInput name="nombre" [(ngModel)]="nuevoEstudiante.nombre" placeholder="NOMBRE Y APELLIDO">
+            </mat-form-field>
+            <div class="fila_campos">
+              <mat-form-field appearance="outline">
+                <input matInput name="correo" [(ngModel)]="nuevoEstudiante.correo" placeholder="CORREO">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input matInput name="contrasena" [(ngModel)]="nuevoEstudiante.contrasena" placeholder="CONTRASENA">
+              </mat-form-field>
+            </div>
+            <div class="fila_campos">
+              <mat-form-field appearance="outline">
+                <input matInput name="dni" [(ngModel)]="nuevoEstudiante.dni" placeholder="D.N.I">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input matInput name="telefono" [(ngModel)]="nuevoEstudiante.telefono" placeholder="TELEFONO">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="grupo_campos">
+            <mat-form-field appearance="outline">
+              <input matInput name="carrera" [(ngModel)]="nuevoEstudiante.carrera" placeholder="CARRERA">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input matInput name="ciclo" [(ngModel)]="nuevoEstudiante.ciclo" placeholder="CICLO">
+            </mat-form-field>
+            <div class="fila_campos">
+              <mat-form-field appearance="outline">
+                <input matInput name="codigo" [(ngModel)]="nuevoEstudiante.codigo" placeholder="CODIGO">
+              </mat-form-field>
+              <button mat-raised-button class="boton_secundario" type="button" (click)="nuevoEstudiante.codigo = generarCodigo()">GENERAR CODIGO</button>
+            </div>
+          </div>
+        </div>
+
+        <button mat-raised-button class="boton_registrar" type="submit">REGISTRAR</button>
+        <p class="mensaje_registro" *ngIf="mensajeRegistro">{{ mensajeRegistro }}</p>
+      </form>
+
+      <section class="panel_tabla">
+        <h2>Historial de estudiantes</h2>
+        <div class="contenedor_filtro">
+          <mat-form-field appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput name="filtroEstudiante" [(ngModel)]="filtroEstudiante" placeholder="FILTRAR POR CODIGO, NOMBRE, CURSO O CICLO">
+          </mat-form-field>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>CODIGO</th>
+              <th>NOMBRE</th>
+              <th>CURSO</th>
+              <th>CICLO</th>
+              <th>ACCIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let estudiante of estudiantesFiltrados">
+              <td>{{ estudiante.codigo }}</td>
+              <td>{{ estudiante.nombre }}</td>
+              <td>{{ estudiante.curso }}</td>
+              <td>{{ estudiante.ciclo }}</td>
+              <td>
+                <button class="boton_editar" type="button" (click)="editarRegistro(estudiante)">EDITAR</button>
+                <button class="boton_eliminar" type="button" (click)="eliminarEstudiante(estudiante.codigo)">ELIMINAR</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <div id="contenedor_admin" *ngIf="opcionSeleccionada === 'cursos'">
+      <form class="panel_formulario formulario_curso" (ngSubmit)="registrarCurso()">
+        <div class="cabecera_formulario cabecera_unica">
+          <h2>Datos Del Curso</h2>
+        </div>
+
+        <div class="cuerpo_formulario">
+          <div class="grupo_campos">
+            <mat-form-field appearance="outline">
+              <input matInput name="nombreCurso" [(ngModel)]="nuevoCurso.nombre" placeholder="NOMBRE DEL CURSO">
+            </mat-form-field>
+            <div class="fila_campos">
+              <mat-form-field appearance="outline">
+                <input matInput name="inicio" [(ngModel)]="nuevoCurso.inicio" placeholder="INICIO">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <input matInput name="fin" [(ngModel)]="nuevoCurso.fin" placeholder="FIN">
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+              <input matInput name="codigoCurso" [(ngModel)]="nuevoCurso.codigo" placeholder="CODIGO">
+            </mat-form-field>
+          </div>
+
+          <div class="grupo_campos">
+            <mat-form-field appearance="outline">
+              <textarea matInput name="descripcionCurso" [(ngModel)]="nuevoCurso.descripcion" placeholder="DESCRIPCION"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <button mat-raised-button class="boton_registrar" type="submit">REGISTRAR</button>
+        <p class="mensaje_registro" *ngIf="mensajeRegistro">{{ mensajeRegistro }}</p>
+      </form>
+
+      <section class="panel_tabla">
+        <h2>Historial de cursos</h2>
+        <div class="contenedor_filtro">
+          <mat-form-field appearance="outline">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput name="filtroCurso" [(ngModel)]="filtroCurso" placeholder="FILTRAR POR CODIGO, NOMBRE O FECHA">
+          </mat-form-field>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>CODIGO</th>
+              <th>NOMBRE</th>
+              <th>INICIO / FIN</th>
+              <th>ACCIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let curso of cursosFiltrados">
+              <td>{{ curso.codigo }}</td>
+              <td>{{ curso.nombre }}</td>
+              <td>{{ obtenerPeriodo(curso)[0] }} - {{ obtenerPeriodo(curso)[1] }}</td>
+              <td>
+                <button class="boton_editar" type="button" (click)="editarRegistro(curso)">EDITAR</button>
+                <button class="boton_eliminar" type="button" (click)="eliminarCurso(curso.codigo)">ELIMINAR</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <div id="contenedor_admin" *ngIf="opcionSeleccionada === 'datos'">
+      <section class="panel_formulario panel_datos_admin">
+        <div class="cabecera_formulario cabecera_unica">
+          <h2>Mis Datos</h2>
+        </div>
+        <div class="cuerpo_formulario">
+          <p>Administrador: {{ usuario }}</p>
+          <p>Gestion de estudiantes y cursos</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
